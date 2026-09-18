@@ -12,9 +12,9 @@ export const siteConfig = {
     contact: {
       whatsappNumber: "919625172963",
       whatsappDisplay: "+91 9625172963",
-      email: "hello@nareskrphotography.com",
-      instagram: "https://instagram.com/nareskrphotography",
-      instagramHandle: "@nareskrphotography"
+      email: "nareskr2025@gmail.com",
+      instagram: "https://www.instagram.com/nares_kr",
+      instagramHandle: "@nares_kr"
     }
   },
   developer: {

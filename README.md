@@ -135,7 +135,8 @@ Open your browser to:
 ## ✦ Credits & Maintenance
 
 - **Photography & Visual Direction**: **Nares Kr** (*Manipur, India*)
-  - Instagram: [@nareskrphotography](https://instagram.com/nareskrphotography)
+  - Instagram: [@nares_kr](https://www.instagram.com/nares_kr)
+  - Email: [nareskr2025@gmail.com](mailto:nareskr2025@gmail.com)
   - WhatsApp: `+91 9625172963`
 - **Digital Architecture, Engineering & Maintenance**: **Banishwor Athokpam**
   - Portfolio & Profile: [https://banishwor.github.io/aboutme](https://banishwor.github.io/aboutme)
