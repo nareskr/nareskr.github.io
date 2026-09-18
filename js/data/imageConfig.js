@@ -40,15 +40,15 @@ export const imageConfig = {
       captionPosition: "bottom"
     },
 
-    // 03: Khundo Lengba.jpg
+    // 03: Kundo Lengba.jpg
     {
       id: "curated-03",
       number: "04",
-      chapterTag: "KHUNDO LENGBA",
-      title: "KHUNDO LENGBA",
+      chapterTag: "KUNDO LENGBA",
+      title: "KUNDO LENGBA",
       caption: "Threading sacred blossoms with prayers, patience, and quiet grace.",
-      src: "assets/images/web/khundo_lengba.jpg",
-      alt: "Khundo Lengba — Sacred Garland Threading",
+      src: "assets/images/web/kundo_lengba.jpg",
+      alt: "Kundo Lengba — Sacred Garland Threading",
       captionPosition: "bottom"
     },
 

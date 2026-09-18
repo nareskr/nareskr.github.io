@@ -79,9 +79,9 @@ export class CinematicAlbum {
       poster: videoConfig.keina.poster
     };
 
-    // Slide 04: Khundo Lengba (Garland Threading Ritual)
+    // Slide 04: Kundo Lengba (Garland Threading Ritual)
     const slide4 = {
-      id: "slide-photo-khundo-lengba",
+      id: "slide-photo-kundo-lengba",
       type: "photo",
       chapterNumber: "04",
       chapterTag: curatedSeries[2].chapterTag,

@@ -12,7 +12,7 @@ An editorial digital monograph documenting sacred Manipuri weddings in Manipur. 
 - **13 Sequential Curated Spreads**:
   - **Slides 01–02**: *Heijingpot* (Hero bridal portrait & *Heijing Kharai* sacred blessings).
   - **Slide 03**: *Moving Photography* (`Keina Teaser.mp4` — bridal moving portrait).
-  - **Slide 04**: *Khundo Lengba* (Sacred jasmine garland threading ritual).
+  - **Slide 04**: *Kundo Lengba* (Sacred jasmine garland threading ritual).
   - **Slides 05–06**: *Luhongba* (Family grouping & candid with friends).
   - **Slide 07**: *Moving Photography* (`Luhongba Teaser.mp4` — sacred wedding vows).
   - **Slide 08**: *Heirloom Photobook Cover* (Closed hardbound album with gold foil embossing & ribbon).
@@ -81,7 +81,7 @@ WEBSITE PROJECT/
 │   │   └── web/
 │   │       ├── heijingpot_3.jpg     # Hero bridal portrait
 │   │       ├── heijing_kharai_lanba_heijingpot.jpg
-│   │       ├── khundo_lengba.jpg    # Sacred garland threading
+│   │       ├── kundo_lengba.jpg     # Sacred garland threading
 │   │       ├── luhongba_family_group.jpg
 │   │       └── candid_luhongba.jpg
 │   └── videos/
