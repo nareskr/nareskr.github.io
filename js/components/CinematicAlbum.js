@@ -565,7 +565,7 @@ export class CinematicAlbum {
       }
     }, { passive: false });
 
-    // 2. Touch Gestures (Swipe Up / Down)
+    // 2. Mobile Touch Gestures (Swipe Up/Down and Left/Right)
     stage.addEventListener('touchstart', (e) => {
       this.touchStartY = e.touches[0].clientY;
       this.touchStartX = e.touches[0].clientX;
@@ -573,15 +573,30 @@ export class CinematicAlbum {
 
     stage.addEventListener('touchend', (e) => {
       if (this.isTransitioning) return;
+      // Do not navigate while interactive modal or menu overlay is open
+      if (document.querySelector('.modal-backdrop.is-open, .mobile-menu-overlay.is-open')) return;
 
       const deltaY = this.touchStartY - e.changedTouches[0].clientY;
       const deltaX = this.touchStartX - e.changedTouches[0].clientX;
+      const absY = Math.abs(deltaY);
+      const absX = Math.abs(deltaX);
+      const threshold = 35; // minimum movement in px to trigger navigation
 
-      if (Math.abs(deltaY) > 35 && Math.abs(deltaY) > Math.abs(deltaX)) {
-        if (deltaY > 0) {
-          this.next();
+      if (absY > threshold || absX > threshold) {
+        if (absX > absY) {
+          // Dominant Horizontal Swipe (Instagram/Photobook style)
+          if (deltaX > 0) {
+            this.next(); // Swipe left -> advance
+          } else {
+            this.prev(); // Swipe right -> previous
+          }
         } else {
-          this.prev();
+          // Dominant Vertical Swipe (Reels/TikTok scroll style)
+          if (deltaY > 0) {
+            this.next(); // Swipe up -> advance
+          } else {
+            this.prev(); // Swipe down -> previous
+          }
         }
       }
     }, { passive: true });

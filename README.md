@@ -18,6 +18,7 @@ An editorial digital monograph documenting sacred Manipuri weddings in Manipur. 
   - **Slide 08**: *Heirloom Photobook Cover* (Closed hardbound album with gold foil embossing & ribbon).
   - **Slides 09–12**: *Wedding Package Folios* (Essential, Classic, Premium, Luxury) with realistic **3D page-turning perspective physics**.
   - **Slide 13**: *Direct Commission Colophon* (WhatsApp booking, studio call, and maintainer credits).
+- **Dual Gesture Engine**: Supports both vertical swipe/scroll (Reels/feed style) and horizontal swipe left/right (photobook page flip) with intelligent dominant-axis detection.
 
 ### 2. Desktop Split-Screen Presentation
 - **Two-Column Editorial Grid** (for viewports $\ge$ 768px):
