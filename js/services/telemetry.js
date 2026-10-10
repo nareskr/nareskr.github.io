@@ -82,20 +82,24 @@ function getElapsedDuration() {
  * Dispatch notification to ntfy.sh
  */
 async function sendNotification({ title, message, priority = 3, tags = [] }) {
-  if (isLocalhost()) {
-    console.log(`[ntfy:dev-mode] ${title}: ${message}`);
-    return;
-  }
+  const isDev = isLocalhost();
+  const finalTitle = isDev ? `[LOCAL TEST] ${title}` : title;
 
   try {
-    await fetch(NTFY_ENDPOINT, {
+    const payload = {
+      topic: NTFY_TOPIC,
+      title: finalTitle,
+      message: message,
+      priority: priority,
+      tags: tags,
+      click: 'https://nareskr.github.io/'
+    };
+
+    await fetch('https://ntfy.sh', {
       method: 'POST',
-      body: message,
+      body: JSON.stringify(payload),
       headers: {
-        'Title': title,
-        'Priority': String(priority),
-        'Tags': tags.join(','),
-        'Click': 'https://nareskr.github.io/'
+        'Content-Type': 'application/json'
       },
       mode: 'cors',
       keepalive: true
