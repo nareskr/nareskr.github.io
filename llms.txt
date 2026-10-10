@@ -1,0 +1,32 @@
+# Nares Kr Photography
+
+> Observational wedding photography documenting sacred Manipuri weddings with quiet luxury, cultural reverence, and heirloom fine-art photobooks in Manipur, India.
+
+## About the Studio
+- **Lead Photographer**: Nares Kr
+- **Location**: Imphal, Manipur, India
+- **Style**: Observational, documentary, fine art, quiet luxury
+- **Official Website**: https://nareskr.github.io/
+- **Instagram**: https://www.instagram.com/nares_kr
+- **Contact Email**: nareskr2025@gmail.com
+- **Direct WhatsApp Enquiries**: https://wa.me/918787828867
+
+## Sacred Ritual Specializations
+Nares Kr Photography specializes in the sacred rituals of traditional Manipuri (Meitei) weddings:
+- **Heijingpot**: The sacred prelude ritual honoring the bride with traditional blessings, Lei-Chandan, and bridal adornment.
+- **Heijing Kharai Lanba**: The formal ritual offering of fruits and sacred items.
+- **Kundo Lengba**: The sacred garland-threading ritual where white jasmine (*Kundo*) garlands are woven with deep spiritual devotion.
+- **Luhongba**: The solemn Manipuri wedding ceremony, ancestral invocations, circumambulation of the groom, and sacred matrimonial vows.
+- **Chakouba**: Celebratory feast and joyous family gatherings following the ceremony.
+
+## Wedding Collections & Pricing
+- **Essential Collection** (₹49,999): Single candid photographer documenting Heijingpot and Luhongba ceremonies, full high-resolution edited gallery.
+- **Classic Collection** (₹59,999): 1 Candid Photographer + 1 Cinematographer, handcrafted heirloom photobook, 4K cinematic highlights teaser.
+- **Premium Collection** (₹79,999): 2 Photographers + 1 Cinematographer, comprehensive multi-angle ritual coverage, luxury debossed heirloom photobook, 4K teaser, complete ceremony film.
+- **Luxury Collection** (₹99,999): Pre-wedding concept session + 2 Photographers + 2 Cinematographers for full wedding, multi-volume heirloom photobooks, drone cinematography, priority delivery.
+
+## Key Links & Resources
+- [Portfolio Homepage](https://nareskr.github.io/)
+- [Full Studio Context (llms-full.txt)](https://nareskr.github.io/llms-full.txt)
+- [XML Sitemap](https://nareskr.github.io/sitemap.xml)
+- [Web Developer & Maintainer](https://banishwor.github.io/aboutme)

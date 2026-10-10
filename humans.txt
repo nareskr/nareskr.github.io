@@ -1,0 +1,17 @@
+/* TEAM */
+  Artist & Lead Photographer: Nares Kr
+  Instagram: https://www.instagram.com/nares_kr
+  Contact: nareskr2025@gmail.com
+  Location: Imphal, Manipur, India
+
+  Web Developer & Maintainer: Banishwor Athokpam
+  Portfolio: https://banishwor.github.io/aboutme
+  GitHub: https://github.com/banishwor
+  Location: Manipur, India
+
+/* SITE */
+  Standards: HTML5, CSS3 (Custom Properties & Responsive Layout), Vanilla JavaScript (ES Modules)
+  Components: 3D Heirloom Photobook Simulation, Mobile Dual Gesture Engine, Responsive Split-Screen
+  Typography: Cormorant Garamond, Plus Jakarta Sans, Space Mono (via Google Fonts)
+  Hosting: GitHub Pages (https://nareskr.github.io/)
+  Software: Custom handcrafted code, zero runtime frameworks

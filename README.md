@@ -133,6 +133,15 @@ Open your browser to:
 
 ---
 
+## ✦ SEO & Generative AI Discovery (GEO)
+
+- **Search Indexing**: Standard `robots.txt` and `sitemap.xml` with Google Image Search extension tags (`xmlns:image`) explicitly indexing portfolio spreads (*Heijingpot*, *Kundo Lengba*, *Luhongba*).
+- **Generative AI Discovery (`llms.txt` & `llms-full.txt`)**: Spec-compliant Markdown knowledge files serving concise facts to AI search engines (Perplexity, ChatGPT Search, Gemini, Claude).
+- **Rich Snippets & Structured Data**: Comprehensive Schema.org graph combining `PhotographyBusiness`, `WebSite`, and `FAQPage` with local Manipur geo-coordinates (`IN-MN`).
+- **Platform Standards**: `site.webmanifest` (PWA / mobile install), `browserconfig.xml` (Windows tiles), and `humans.txt` (developer attribution).
+
+---
+
 ## ✦ Credits & Maintenance
 
 - **Photography & Visual Direction**: **Nares Kr** (*Manipur, India*)

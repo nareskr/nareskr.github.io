@@ -1,0 +1,32 @@
+{
+  "name": "Nares Kr Photography",
+  "short_name": "Nares Kr",
+  "description": "Editorial wedding photography documenting sacred Manipuri weddings with quiet luxury and cultural reverence.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0B0A09",
+  "theme_color": "#11100D",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": [
+    "lifestyle",
+    "photography"
+  ]
+}

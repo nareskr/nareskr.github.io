@@ -13,35 +13,148 @@
   <meta name="designer" content="Banishwor Athokpam">
   <link rel="author" href="https://banishwor.github.io/aboutme">
 
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://nareskr.github.io/">
+
+  <!-- Theme Color & Mobile Manifest -->
+  <meta name="theme-color" content="#11100D">
+  <meta name="msapplication-TileColor" content="#11100D">
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="site.webmanifest">
+
   <!-- Favicons & Touch Icons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   
-  <!-- Open Graph / Social Media -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="NARES KR PHOTOGRAPHY • Manipuri Wedding Stories">
-  <meta property="og:description" content="A Manipuri wedding, told through photographs. Quiet luxury and cultural reverence by Nares Kr Photography.">
-  <meta property="og:image" content="assets/images/web/heijingpot_3.jpg">
+  <!-- Geographic / Local SEO Meta (Manipur) -->
+  <meta name="geo.region" content="IN-MN">
+  <meta name="geo.placename" content="Imphal, Manipur">
+  <meta name="geo.position" content="24.8170;93.9368">
+  <meta name="ICBM" content="24.8170, 93.9368">
 
-  <!-- Structured Data (Schema.org) -->
+  <!-- Open Graph / Social Media (Absolute URLs for WhatsApp, Facebook, iMessage) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nares Kr Photography">
+  <meta property="og:url" content="https://nareskr.github.io/">
+  <meta property="og:title" content="NARES KR PHOTOGRAPHY • Manipuri Wedding Stories">
+  <meta property="og:description" content="A Manipuri wedding, told through photographs. Quiet luxury, sacred Meitei rituals, and heirloom photobooks by Nares Kr Photography.">
+  <meta property="og:image" content="https://nareskr.github.io/assets/images/web/heijingpot_3.jpg">
+  <meta property="og:image:secure_url" content="https://nareskr.github.io/assets/images/web/heijingpot_3.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="800">
+  <meta property="og:image:alt" content="Manipuri Bridal Portrait — Nares Kr Photography">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NARES KR PHOTOGRAPHY • Manipuri Wedding Stories">
+  <meta name="twitter:description" content="A Manipuri wedding, told through photographs. Sacred Meitei rituals and heirloom photobooks in Manipur.">
+  <meta name="twitter:image" content="https://nareskr.github.io/assets/images/web/heijingpot_3.jpg">
+  <meta name="twitter:image:alt" content="Manipuri Bridal Portrait by Nares Kr">
+
+  <!-- Structured Data: PhotographyBusiness, WebSite, & FAQPage (Schema.org Graph) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Nares Kr Photography",
-    "description": "Editorial wedding photography documenting sacred Manipuri weddings in Manipur.",
-    "author": {
-      "@type": "Person",
-      "name": "Nares Kr",
-      "jobTitle": "Photographer"
-    },
-    "creator": {
-      "@type": "Person",
-      "name": "Banishwor Athokpam",
-      "url": "https://banishwor.github.io/aboutme",
-      "jobTitle": "Web Developer & Maintainer"
-    }
+    "@graph": [
+      {
+        "@type": "PhotographyBusiness",
+        "@id": "https://nareskr.github.io/#business",
+        "name": "Nares Kr Photography",
+        "url": "https://nareskr.github.io/",
+        "logo": "https://nareskr.github.io/assets/images/branding/logo.png",
+        "image": "https://nareskr.github.io/assets/images/web/heijingpot_3.jpg",
+        "description": "Editorial wedding photography documenting sacred Manipuri weddings in Manipur. Heijingpot, Kundo Lengba, Luhongba, and heirloom fine art albums.",
+        "email": "nareskr2025@gmail.com",
+        "telephone": "+918787828867",
+        "priceRange": "₹₹₹",
+        "currenciesAccepted": "INR",
+        "paymentAccepted": "Cash, UPI, Bank Transfer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Imphal",
+          "addressRegion": "Manipur",
+          "postalCode": "795001",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 24.8170,
+          "longitude": 93.9368
+        },
+        "areaServed": [
+          {
+            "@type": "AdministrativeArea",
+            "name": "Manipur, India"
+          },
+          {
+            "@type": "City",
+            "name": "Imphal"
+          }
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Nares Kr",
+          "jobTitle": "Lead Wedding Photographer",
+          "sameAs": "https://www.instagram.com/nares_kr"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Banishwor Athokpam",
+          "url": "https://banishwor.github.io/aboutme",
+          "jobTitle": "Web Developer & Maintainer"
+        },
+        "sameAs": [
+          "https://www.instagram.com/nares_kr"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://nareskr.github.io/#website",
+        "name": "Nares Kr Photography",
+        "url": "https://nareskr.github.io/",
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://nareskr.github.io/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What wedding rituals are covered by Nares Kr Photography?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We specialize in the complete continuum of sacred Manipuri weddings, including Heijingpot (bridal blessings), Heijing Kharai Lanba, Kundo Lengba (sacred garland threading ceremony), Luhongba (wedding rituals and vows), and Chakouba."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What wedding photography packages do you offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We offer four curated heirloom collections: Essential (₹49,999), Classic (₹59,999 with heirloom photobook and teaser), Premium (₹79,999 with 2 photographers and 1 cinematographer), and Luxury (₹99,999 including pre-wedding, 2 photographers, and 2 cinematographers)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do your packages include heirloom printed photobooks?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our Classic, Premium, and Luxury collections include custom handcrafted heirloom photobooks featuring hardbound covers, archival fine-art printing, and foil-embossed detailing designed to last generations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can couples reserve their wedding date?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dates can be reserved directly via WhatsApp (+91 87878 28867) or by email at nareskr2025@gmail.com. Because we take on a limited number of weddings per season to preserve creative quality, booking 2 to 3 months in advance is recommended."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://nareskr.github.io/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Curated Wedding Portfolio Images for Google Image Search -->
+    <image:image>
+      <image:loc>https://nareskr.github.io/assets/images/web/heijingpot_3.jpg</image:loc>
+      <image:title>Heijingpot Bridal Portrait — Nares Kr Photography</image:title>
+      <image:caption>Traditional Manipuri bridal portrait during Heijingpot ritual in Manipur.</image:caption>
+      <image:geo_location>Imphal, Manipur, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://nareskr.github.io/assets/images/web/heijing_kharai_lanba_heijingpot.jpg</image:loc>
+      <image:title>Heijing Kharai Lanba Ritual Offerings — Nares Kr Photography</image:title>
+      <image:caption>Sacred Heijing Kharai Lanba blessings and traditional fruit offerings.</image:caption>
+      <image:geo_location>Imphal, Manipur, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://nareskr.github.io/assets/images/web/kundo_lengba.jpg</image:loc>
+      <image:title>Kundo Lengba Sacred Garland Threading — Nares Kr Photography</image:title>
+      <image:caption>The sacred white jasmine Kundo Lengba garland threading ritual during Meitei wedding.</image:caption>
+      <image:geo_location>Imphal, Manipur, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://nareskr.github.io/assets/images/web/luhongba_family_group.jpg</image:loc>
+      <image:title>Luhongba Family Heirloom Portrait — Nares Kr Photography</image:title>
+      <image:caption>Generational family group photograph during sacred Luhongba ceremony.</image:caption>
+      <image:geo_location>Imphal, Manipur, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://nareskr.github.io/assets/images/web/candid_luhongba.jpg</image:loc>
+      <image:title>Candid Luhongba Celebrations — Nares Kr Photography</image:title>
+      <image:caption>Unfiltered joyous candid moments between wedding rituals in Manipur.</image:caption>
+      <image:geo_location>Imphal, Manipur, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://nareskr.github.io/assets/images/branding/logo.png</image:loc>
+      <image:title>Nares Kr Photography Official Logo</image:title>
+      <image:caption>Typographic brand mark of Nares Kr Photography.</image:caption>
+    </image:image>
+  </url>
+</urlset>
