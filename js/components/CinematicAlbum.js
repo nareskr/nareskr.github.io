@@ -23,6 +23,7 @@ import { videoConfig } from '../data/videoConfig.js';
 import { packageData } from '../data/packageData.js';
 import { getPackageWhatsAppUrl, getGeneralWhatsAppUrl } from '../utils/whatsapp.js';
 import { prewarmVideos } from '../utils/videoPreloader.js';
+import { trackSlideMilestone, trackWhatsAppClick } from '../services/telemetry.js';
 
 export class CinematicAlbum {
   constructor(mountNode) {
@@ -655,6 +656,14 @@ export class CinematicAlbum {
         video.pause();
       });
     });
+
+    // 7. Track WhatsApp CTA Clicks
+    this.mountNode.querySelectorAll('.pkg-editorial-cta').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const text = btn.innerText.replace(/[\n\r↗→]+/g, ' ').trim() || 'General Enquiry';
+        trackWhatsAppClick(text);
+      });
+    });
   }
 
   goTo(index) {
@@ -720,6 +729,10 @@ export class CinematicAlbum {
     }
 
     this.updateHUD();
+
+    // Trigger high-intent push notification when arriving at Slide 13 (Reservations spread)
+    const activeSlide = this.slides[index];
+    trackSlideMilestone(index, this.slides.length, activeSlide?.id);
 
     setTimeout(() => {
       // Clean up animation classes once transition settles

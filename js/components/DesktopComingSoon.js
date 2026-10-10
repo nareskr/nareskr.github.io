@@ -6,6 +6,7 @@
  */
 import { siteConfig } from '../data/siteConfig.js';
 import { getGeneralWhatsAppUrl } from '../utils/whatsapp.js';
+import { trackWhatsAppClick } from '../services/telemetry.js';
 
 export function renderDesktopComingSoon() {
   const { brandTitle, brandSubtitle, location, contact } = siteConfig.photographer;
@@ -194,4 +195,10 @@ export function initDesktopSimulatorEvents(albumInstance) {
     originalUpdateHUD();
     updateCounter();
   };
+
+  // Track Desktop WhatsApp CTA clicks
+  const desktopWaBtn = document.querySelector('.desktop-whatsapp-cta');
+  desktopWaBtn?.addEventListener('click', () => {
+    trackWhatsAppClick('Desktop Editorial Hero');
+  });
 }

@@ -139,6 +139,7 @@ Open your browser to:
 - **Generative AI Discovery (`llms.txt` & `llms-full.txt`)**: Spec-compliant Markdown knowledge files serving concise facts to AI search engines (Perplexity, ChatGPT Search, Gemini, Claude).
 - **Rich Snippets & Structured Data**: Comprehensive Schema.org graph combining `PhotographyBusiness`, `WebSite`, and `FAQPage` with local Manipur geo-coordinates (`IN-MN`).
 - **Platform Standards**: `site.webmanifest` (PWA / mobile install), `browserconfig.xml` (Windows tiles), and `humans.txt` (developer attribution).
+- **Real-Time Lead Alerts (`ntfy.sh`)**: Zero-backend push telemetry silently notifying the studio mobile app on new visitor arrival, Slide 13 (Reservations) completion, and WhatsApp booking clicks (with strict session deduplication).
 
 ---
 
