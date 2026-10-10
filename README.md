@@ -150,8 +150,8 @@ Open your browser to:
   - Email: [nareskr2025@gmail.com](mailto:nareskr2025@gmail.com)
   - WhatsApp & Phone: `+91 9625172963`
   - Alternative Phone: `+91 8575949907`
-- **Digital Architecture, Engineering & Maintenance**: **Banishwor Athokpam**
-  - Profile: Software developer, author & creator from Manipur (Creator of *BANI // OS*)
+- **Digital Architecture, Engineering & Maintenance**: **Banishwor Athokpam** *(also known as **Banishwor**, **Bani**)*
+  - Profile: Software developer, writer & creator from Manipur
   - Interactive Portfolio: [https://banishwor.github.io/aboutme](https://banishwor.github.io/aboutme)
   - GitHub: [@banishwor](https://github.com/banishwor)
   - Instagram: [@banishwor_ath](https://www.instagram.com/banishwor_ath)

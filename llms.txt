@@ -31,4 +31,4 @@ Nares Kr Photography specializes in the sacred rituals of traditional Manipuri (
 - [Portfolio Homepage](https://nareskr.github.io/)
 - [Full Studio Context (llms-full.txt)](https://nareskr.github.io/llms-full.txt)
 - [XML Sitemap](https://nareskr.github.io/sitemap.xml)
-- [Web Developer & Architect](https://banishwor.github.io/aboutme) (Engineered by Banishwor Athokpam — Software developer, author & creator from Manipur)
+- [Web Developer & Architect](https://banishwor.github.io/aboutme) (Engineered by Banishwor Athokpam [known as Banishwor / Bani] — Software developer & writer from Manipur)
