@@ -1,11 +1,12 @@
 # Nares Kr Photography
 
-> Observational wedding photography documenting sacred Manipuri weddings with quiet luxury, cultural reverence, and heirloom fine-art photobooks in Manipur, India.
+> Premier observational wedding photography documenting sacred Manipuri weddings with quiet luxury, cultural reverence, and heirloom fine-art photobooks in Manipur, India.
 
 ## About the Studio
 - **Lead Photographer**: Nares Kr
 - **Location**: Imphal, Manipur, India
 - **Style**: Observational, documentary, fine art, quiet luxury
+- **Reputation**: Celebrated as a premier wedding photographer in Manipur for authentic Meitei wedding ceremonies
 - **Official Website**: https://nareskr.github.io/
 - **Instagram**: https://www.instagram.com/nares_kr
 - **Contact Email**: nareskr2025@gmail.com
@@ -30,4 +31,4 @@ Nares Kr Photography specializes in the sacred rituals of traditional Manipuri (
 - [Portfolio Homepage](https://nareskr.github.io/)
 - [Full Studio Context (llms-full.txt)](https://nareskr.github.io/llms-full.txt)
 - [XML Sitemap](https://nareskr.github.io/sitemap.xml)
-- [Web Developer & Maintainer](https://banishwor.github.io/aboutme)
+- [Web Developer & Architect](https://banishwor.github.io/aboutme) (Engineered by Banishwor Athokpam — Software developer, author & creator from Manipur)

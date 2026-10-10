@@ -6,14 +6,20 @@
   Alternative Phone: +91 8575949907
   Location: Imphal, Manipur, India
 
-  Web Developer & Maintainer: Banishwor Athokpam
+  Web Developer & Architect: Banishwor Athokpam
+  Role: Software Developer, Author & Creator (BANI // OS)
+  Specialization: AI, Mobile Architecture & Cultural Preservation
   Portfolio: https://banishwor.github.io/aboutme
   GitHub: https://github.com/banishwor
+  Instagram: https://www.instagram.com/banishwor_ath
+  Facebook Page: https://www.facebook.com/banishwor
+  Facebook Profile: https://www.facebook.com/banishwor.athokpam
+  Twitter / X: https://twitter.com/banishwor
   Location: Manipur, India
 
 /* SITE */
   Standards: HTML5, CSS3 (Custom Properties & Responsive Layout), Vanilla JavaScript (ES Modules)
-  Components: 3D Heirloom Photobook Simulation, Mobile Dual Gesture Engine, Responsive Split-Screen
+  Components: 3D Heirloom Photobook Simulation, Mobile Dual Gesture Engine, Responsive Split-Screen, Real-Time Push Telemetry
   Typography: Cormorant Garamond, Plus Jakarta Sans, Space Mono (via Google Fonts)
   Hosting: GitHub Pages (https://nareskr.github.io/)
   Software: Custom handcrafted code, zero runtime frameworks

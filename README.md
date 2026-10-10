@@ -151,7 +151,12 @@ Open your browser to:
   - WhatsApp & Phone: `+91 9625172963`
   - Alternative Phone: `+91 8575949907`
 - **Digital Architecture, Engineering & Maintenance**: **Banishwor Athokpam**
-  - Portfolio & Profile: [https://banishwor.github.io/aboutme](https://banishwor.github.io/aboutme)
+  - Profile: Software developer, author & creator from Manipur (Creator of *BANI // OS*)
+  - Interactive Portfolio: [https://banishwor.github.io/aboutme](https://banishwor.github.io/aboutme)
+  - GitHub: [@banishwor](https://github.com/banishwor)
+  - Instagram: [@banishwor_ath](https://www.instagram.com/banishwor_ath)
+  - Facebook: [banishwor.athokpam](https://www.facebook.com/banishwor.athokpam) • [Page](https://www.facebook.com/banishwor)
+  - Twitter / X: [@banishwor](https://twitter.com/banishwor)
 
 ---
 
