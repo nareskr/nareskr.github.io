@@ -147,7 +147,8 @@ Open your browser to:
 - **Photography & Visual Direction**: **Nares Kr** (*Manipur, India*)
   - Instagram: [@nares_kr](https://www.instagram.com/nares_kr)
   - Email: [nareskr2025@gmail.com](mailto:nareskr2025@gmail.com)
-  - WhatsApp: `+91 9625172963`
+  - WhatsApp & Phone: `+91 9625172963`
+  - Alternative Phone: `+91 8575949907`
 - **Digital Architecture, Engineering & Maintenance**: **Banishwor Athokpam**
   - Portfolio & Profile: [https://banishwor.github.io/aboutme](https://banishwor.github.io/aboutme)
 

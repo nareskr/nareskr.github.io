@@ -367,18 +367,23 @@ export class CinematicAlbum {
             "Your wedding deserves to be remembered as it felt."
           </p>
 
-          <p style="font-family: var(--font-sans); font-size: 0.8rem; color: #A39E94; line-height: 1.6; max-width: 32ch; margin-bottom: 26px; letter-spacing: 0.04em;">
+          <p style="font-family: var(--font-sans); font-size: 0.8rem; color: #A39E94; line-height: 1.6; max-width: 32ch; margin-bottom: 22px; letter-spacing: 0.04em;">
             In Manipur, wedding dates are fixed first. Once your dates are finalized, reach out directly on WhatsApp to check our availability and enquire about booking your wedding.
           </p>
 
-          <a href="${getGeneralWhatsAppUrl()}" target="_blank" rel="noopener noreferrer" class="pkg-editorial-cta" style="margin-bottom: 12px; background: #9E7D4B; border-color: #D4AF37;">
+          <a href="${getGeneralWhatsAppUrl()}" target="_blank" rel="noopener noreferrer" class="pkg-editorial-cta" style="margin-bottom: 10px; background: #9E7D4B; border-color: #D4AF37;">
             <span>ENQUIRE ON WHATSAPP</span>
             <span aria-hidden="true">↗</span>
           </a>
 
-          <a href="tel:+${contact.whatsappNumber}" style="display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 11px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.15); color: #C8C2B7; border-radius: 2px; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em; text-decoration: none; margin-bottom: 20px;">
-            <span>CALL: ${contact.whatsappDisplay}</span>
-          </a>
+          <div style="display: flex; gap: 8px; width: 100%; margin-bottom: 20px; flex-wrap: wrap;">
+            <a href="tel:+${contact.whatsappNumber}" style="flex: 1 1 135px; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 10px 6px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.15); color: #C8C2B7; border-radius: 2px; font-family: var(--font-mono); font-size: 0.71rem; letter-spacing: 0.08em; text-decoration: none; white-space: nowrap;">
+              <span>CALL: ${contact.whatsappDisplay}</span>
+            </a>
+            <a href="tel:+${contact.altPhoneNumber}" style="flex: 1 1 135px; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 10px 6px; background: transparent; border: 1px solid rgba(255, 255, 255, 0.15); color: #C8C2B7; border-radius: 2px; font-family: var(--font-mono); font-size: 0.71rem; letter-spacing: 0.08em; text-decoration: none; white-space: nowrap;">
+              <span>ALT: ${contact.altPhoneDisplay}</span>
+            </a>
+          </div>
 
           <div class="colophon-credits-lockup">
             <div class="colophon-brand-line">

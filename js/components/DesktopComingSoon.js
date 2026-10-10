@@ -62,6 +62,10 @@ export function renderDesktopComingSoon() {
                 CALL: ${contact.whatsappDisplay}
               </a>
               <span class="dot">•</span>
+              <a href="tel:+${contact.altPhoneNumber}" class="desktop-meta-item">
+                ALT: ${contact.altPhoneDisplay}
+              </a>
+              <span class="dot">•</span>
               <a href="${contact.instagram}" target="_blank" rel="noopener noreferrer" class="desktop-meta-item">
                 ${contact.instagramHandle}
               </a>
