@@ -21,6 +21,7 @@ export function renderFooter() {
           <a href="${contact.instagram}" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="https://wa.me/${contact.whatsappNumber}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
           <a href="mailto:${contact.email}">Email</a>
+          <a href="admin.html" rel="nofollow" style="opacity: 0.45;">Portal</a>
         </div>
 
         <p class="footer-copy">

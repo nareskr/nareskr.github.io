@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Disallow search indexers from indexing the private admin portal -->
+  <meta name="robots" content="noindex, nofollow">
+  
+  <title>NARES KR PHOTOGRAPHY • Studio Receipt Portal</title>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="admin-header">
+    <a href="./" class="admin-header-brand" title="Return to Portfolio">
+      <img src="assets/images/branding/logo.png" alt="Nares Kr Photography" class="admin-header-logo">
+      <span class="admin-portal-badge">RECEIPT PORTAL</span>
+    </a>
+
+    <nav class="admin-nav-actions">
+      <button class="admin-nav-btn is-active" data-tab="tab-generator">
+        <span>+ NEW RECEIPT</span>
+      </button>
+      <button class="admin-nav-btn" data-tab="tab-ledger">
+        <span>📋 CLOUD LEDGER</span>
+      </button>
+      <button id="admin-logout-btn" class="admin-nav-btn" title="Lock Portal">
+        <span>🔒 LOGOUT</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Workspace Container -->
+  <main class="admin-workspace">
+
+    <!-- Tab 1: Receipt Generator -->
+    <section id="tab-generator" class="tab-pane is-active">
+      <div class="generator-card">
+        <div class="card-headline">
+          <div>
+            <h1 class="card-title">Generate Booking Receipt</h1>
+            <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-top: 2px;">
+              Generates an official client invoice, syncs to Google Sheets, and prepares WhatsApp dispatch.
+            </p>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--admin-gold);">
+            CLOUD SYNC ACTIVE
+          </span>
+        </div>
+
+        <form id="receipt-generator-form">
+          <div class="form-grid">
+            
+            <!-- Receipt Number -->
+            <div class="form-group">
+              <label for="receipt-no" class="form-label">Receipt / Serial No *</label>
+              <input type="text" id="receipt-no" class="form-input" required>
+            </div>
+
+            <!-- Date -->
+            <div class="form-group">
+              <label for="receipt-date" class="form-label">Receipt Date *</label>
+              <input type="date" id="receipt-date" class="form-input" required>
+            </div>
+
+            <!-- Client Name -->
+            <div class="form-group">
+              <label for="client-name" class="form-label">Client Name(s) *</label>
+              <input type="text" id="client-name" class="form-input" placeholder="e.g. Sanamacha & Linthoi" required>
+            </div>
+
+            <!-- WhatsApp Phone -->
+            <div class="form-group">
+              <label for="client-phone" class="form-label">Client WhatsApp Number *</label>
+              <input type="tel" id="client-phone" class="form-input" placeholder="e.g. 9876543210" required>
+            </div>
+
+            <!-- Venue / Location -->
+            <div class="form-group col-span-2">
+              <label for="client-venue" class="form-label">Wedding Location / Venue *</label>
+              <input type="text" id="client-venue" class="form-input" placeholder="e.g. Classic Grande, Imphal / Singjamei" required>
+            </div>
+
+            <!-- Rituals Covered -->
+            <div class="form-group col-span-2">
+              <label class="form-label">Sacred Rituals Covered (Tap to Select)</label>
+              <div class="ritual-pills">
+                <span class="ritual-pill is-selected" data-value="Heijingpot">Heijingpot</span>
+                <span class="ritual-pill" data-value="Heijing Kharai">Heijing Kharai</span>
+                <span class="ritual-pill is-selected" data-value="Kundo Lengba">Kundo Lengba</span>
+                <span class="ritual-pill is-selected" data-value="Luhongba">Luhongba</span>
+                <span class="ritual-pill" data-value="Chakouba">Chakouba</span>
+                <span class="ritual-pill" data-value="Post-Wedding">Post-Wedding</span>
+              </div>
+            </div>
+
+            <!-- Package Selection -->
+            <div class="form-group col-span-2">
+              <label for="receipt-package" class="form-label">Wedding Package Collection *</label>
+              <select id="receipt-package" class="form-select" required>
+                <option value="Essential Collection">Essential Collection (₹49,999)</option>
+                <option value="Classic Collection" selected>Classic Collection (₹59,999 — Photobook + Teaser)</option>
+                <option value="Premium Collection">Premium Collection (₹79,999 — 2P + 1V, Debossed Album)</option>
+                <option value="Luxury Collection">Luxury Collection (₹99,999 — Pre-Wed + 2P + 2V, Multi-Vol)</option>
+                <option value="Custom Package">Custom Package (Enter Custom Amount)</option>
+              </select>
+            </div>
+
+            <!-- Financial Calculation Strip -->
+            <div class="financial-strip">
+              <div class="financial-block">
+                <label for="total-amount" class="form-label">Total Agreed Amount (₹) *</label>
+                <input type="number" id="total-amount" class="form-input" value="59999" min="0" required>
+              </div>
+
+              <div class="financial-block">
+                <label for="advance-paid" class="form-label">Advance Received (₹) *</label>
+                <input type="number" id="advance-paid" class="form-input" value="20000" min="0" required>
+              </div>
+
+              <div class="financial-block balance-due-block">
+                <label for="balance-due" class="form-label">Remaining Balance (₹)</label>
+                <input type="number" id="balance-due" class="form-input" value="39999" readonly>
+              </div>
+            </div>
+
+            <!-- Payment Mode -->
+            <div class="form-group">
+              <label for="payment-mode" class="form-label">Payment Mode *</label>
+              <select id="payment-mode" class="form-select" required>
+                <option value="UPI (GPay / PhonePe / Paytm)">UPI (GPay / PhonePe / Paytm)</option>
+                <option value="Bank Transfer (NEFT / IMPS)">Bank Transfer (NEFT / IMPS)</option>
+                <option value="Cash Payment">Cash Payment</option>
+              </select>
+            </div>
+
+            <!-- Note / UPI Ref -->
+            <div class="form-group">
+              <label for="payment-note" class="form-label">Payment Ref / Notes</label>
+              <input type="text" id="payment-note" class="form-input" placeholder="e.g. UPI Ref / Cash in studio">
+            </div>
+
+          </div>
+
+          <div class="form-action-row">
+            <span id="form-status-msg" style="font-size: 0.8rem; color: var(--admin-success); display: flex; align-items: center;"></span>
+            <button type="submit" id="generate-receipt-btn" class="submit-receipt-btn">
+              <span>GENERATE OFFICIAL RECEIPT</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Tab 2: Google Sheets Ledger & History -->
+    <section id="tab-ledger" class="tab-pane">
+      <div class="ledger-card">
+        <div class="card-headline">
+          <div>
+            <h2 class="card-title">Cloud Receipts Ledger</h2>
+            <p style="font-size: 0.8rem; color: var(--admin-text-muted); margin-top: 2px;">
+              Live data synchronized directly with your private Google Sheet. Tap any row to view/print receipt.
+            </p>
+          </div>
+          <button onclick="loadLedgerFromCloud()" class="admin-nav-btn">
+            <span>🔄 REFRESH</span>
+          </button>
+        </div>
+
+        <div id="ledger-loading-msg" style="text-align: center; padding: 24px; color: var(--admin-gold); display: none;">
+          Connecting to Google Sheet...
+        </div>
+
+        <div class="ledger-table-wrap">
+          <table class="ledger-table">
+            <thead>
+              <tr>
+                <th>RECEIPT NO</th>
+                <th>DATE</th>
+                <th>CLIENT</th>
+                <th>PHONE</th>
+                <th>PACKAGE</th>
+                <th>ADVANCE PAID</th>
+                <th>BALANCE DUE</th>
+              </tr>
+            </thead>
+            <tbody id="ledger-table-body">
+              <tr>
+                <td colspan="7" style="text-align: center; padding: 24px; color: var(--admin-text-muted);">
+                  Click Refresh to load recorded receipts from your Google Sheet.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Login Wall / Auth Overlay -->
+  <div id="admin-auth-overlay" class="admin-auth-overlay">
+    <div class="admin-auth-card">
+      <div class="auth-lock-icon">✦</div>
+      <h2 class="auth-title">Studio Access</h2>
+      <p class="auth-sub">
+        Enter your admin password to access the Nares Kr Photography receipt generator and Google Sheets ledger.
+      </p>
+
+      <form id="admin-auth-form">
+        <div class="auth-input-group">
+          <input type="password" id="auth-password-input" class="auth-input" placeholder="••••••••" required autofocus>
+        </div>
+        <button type="submit" id="auth-submit-btn" class="auth-submit-btn">
+          UNLOCK PORTAL
+        </button>
+        <div id="auth-error-msg" class="auth-error-msg"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Luxury Printable Receipt Modal -->
+  <div id="receipt-modal-backdrop" class="receipt-modal-backdrop" role="dialog" aria-modal="true" aria-label="Official Receipt">
+    <div class="receipt-modal-container">
+      
+      <!-- Top Actions Bar (Hidden when printed) -->
+      <div class="receipt-modal-controls">
+        <div class="control-btn-group">
+          <button id="modal-print-btn" class="receipt-action-btn btn-print">
+            <span>🖨️ PRINT / SAVE PDF</span>
+          </button>
+          <button id="modal-whatsapp-btn" class="receipt-action-btn btn-whatsapp">
+            <span>💬 SEND ON WHATSAPP</span>
+          </button>
+        </div>
+        <button id="modal-close-btn" class="receipt-action-btn btn-close">
+          <span>✕ CLOSE</span>
+        </button>
+      </div>
+
+      <!-- The Official Printable Sheet (Prints cleanly on white A4 paper) -->
+      <div class="official-receipt-sheet" id="printable-receipt-card">
+        
+        <!-- Header -->
+        <div class="receipt-header-row">
+          <div>
+            <img src="assets/images/branding/logo.png" alt="Nares Kr Photography" class="receipt-brand-title">
+            <div class="receipt-studio-info">
+              MANIPURI WEDDING STORIES • QUIET LUXURY<br>
+              Imphal, Manipur • +91 9625172963 / +91 8575949907<br>
+              Instagram: @nares_kr • Email: nareskr2025@gmail.com
+            </div>
+          </div>
+          <div class="receipt-meta-box">
+            <span id="invoice-status-badge" class="receipt-badge-status">ADVANCE RECEIVED</span>
+            <div id="invoice-no" class="receipt-number">NKP-2026-001</div>
+            <div id="invoice-date" class="receipt-date">17 Oct 2026</div>
+          </div>
+        </div>
+
+        <!-- Client Info Strip -->
+        <div class="receipt-client-grid">
+          <div class="receipt-client-item">
+            <label>BILLED TO</label>
+            <span id="invoice-client-name">Client Name</span>
+            <div id="invoice-client-phone" style="font-size: 0.8rem; color: #555; margin-top: 2px;">+91 ••••• •••••</div>
+          </div>
+          <div class="receipt-client-item">
+            <label>WEDDING VENUE & CEREMONIES</label>
+            <span id="invoice-client-venue">Classic Grande, Imphal</span>
+            <div id="invoice-client-rituals" style="font-size: 0.78rem; color: #555; margin-top: 2px;">Heijingpot, Kundo Lengba, Luhongba</div>
+          </div>
+        </div>
+
+        <!-- Invoice Breakdown Table -->
+        <table class="receipt-table">
+          <thead>
+            <tr>
+              <th style="width: 60%;">COLLECTION / SERVICE DETAILS</th>
+              <th style="width: 20%; text-align: center;">SCHEDULE</th>
+              <th style="width: 20%; text-align: right;">TOTAL FEE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong id="invoice-package-title">Classic Collection</strong><br>
+                <span style="font-size: 0.76rem; color: #666;">
+                  Documentary wedding coverage, custom heirloom fine-art photobook, 4K cinematic highlights teaser & pendrive archive.
+                </span>
+              </td>
+              <td style="text-align: center; font-size: 0.8rem; color: #555;">Reserved</td>
+              <td id="invoice-package-total" style="text-align: right; font-weight: 700;">₹59,999</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Totals Block -->
+        <div class="receipt-totals-area">
+          <div class="totals-row">
+            <span>Total Package Fee:</span>
+            <span id="invoice-subtotal">₹59,999</span>
+          </div>
+          <div class="totals-row advance-row">
+            <span>Advance Received:</span>
+            <span id="invoice-advance-paid">- ₹20,000 (UPI)</span>
+          </div>
+          <div class="totals-row due-row">
+            <span>Remaining Balance Due:</span>
+            <span id="invoice-balance-due" style="color: #9E7D4B;">₹39,999</span>
+          </div>
+        </div>
+
+        <!-- Studio Terms -->
+        <div class="receipt-terms-box">
+          <strong>STUDIO TERMS & NOTES:</strong><br>
+          1. Advance payment confirms your wedding dates exclusively on our studio calendar.<br>
+          2. The remaining balance amount is payable on the day of the Luhongba wedding ceremonies.<br>
+          3. Color-graded gallery sneak peeks delivered within 72 hours; physical heirloom albums delivered after layout approval.
+        </div>
+
+        <!-- Seal & Signatures -->
+        <div class="receipt-sign-row">
+          <div class="official-seal-mark">
+            ✦ NARES KR PHOTOGRAPHY ✦<br>
+            OFFICIAL RECEIPT & BOOKING SEAL
+          </div>
+          <div class="signature-line">
+            Authorized Signatory<br>
+            <strong>NARES KR</strong>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Controller -->
+  <script src="js/admin.js"></script>
+</body>
+</html>

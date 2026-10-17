@@ -1,0 +1,731 @@
+/* ========================================================
+   NARES KR PHOTOGRAPHY — ADMIN RECEIPT PORTAL STYLES
+   Editorial Quiet Luxury Aesthetic with High-End Print Styles
+   ======================================================== */
+
+:root {
+  --admin-bg: #0B0A09;
+  --admin-surface: #141311;
+  --admin-surface-elevated: #1C1A17;
+  --admin-border: rgba(212, 175, 55, 0.2);
+  --admin-border-subtle: rgba(255, 255, 255, 0.08);
+  --admin-gold: #D4AF37;
+  --admin-gold-soft: #C5A059;
+  --admin-gold-glow: rgba(212, 175, 55, 0.25);
+  --admin-text-primary: #FAF8F5;
+  --admin-text-secondary: #C8C2B7;
+  --admin-text-muted: #8A847A;
+  --admin-success: #10B981;
+  --admin-error: #EF4444;
+  --admin-radius: 6px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--admin-bg);
+  color: var(--admin-text-primary);
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================================
+   1. TOP NAVIGATION BAR
+   ======================================================== */
+.admin-header {
+  height: 68px;
+  background: var(--admin-surface);
+  border-bottom: 1px solid var(--admin-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.admin-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.admin-header-logo {
+  height: 28px;
+  filter: brightness(0) invert(0.96);
+}
+
+.admin-portal-badge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  padding: 3px 8px;
+  border: 1px solid var(--admin-border);
+  color: var(--admin-gold);
+  border-radius: 3px;
+  background: rgba(212, 175, 55, 0.06);
+}
+
+.admin-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-nav-btn {
+  background: transparent;
+  border: 1px solid var(--admin-border-subtle);
+  color: var(--admin-text-secondary);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  padding: 7px 14px;
+  border-radius: var(--admin-radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.admin-nav-btn:hover {
+  border-color: var(--admin-gold);
+  color: var(--admin-gold);
+}
+
+.admin-nav-btn.is-active {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: var(--admin-gold);
+  color: var(--admin-gold);
+}
+
+/* ========================================================
+   2. AUTH WALL / LOGIN CARD
+   ======================================================== */
+.admin-auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 10, 9, 0.95);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.admin-auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 175, 55, 0.1);
+}
+
+.auth-lock-icon {
+  font-size: 2rem;
+  color: var(--admin-gold);
+  margin-bottom: 12px;
+}
+
+.auth-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.8rem;
+  color: var(--admin-gold);
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+
+.auth-sub {
+  font-size: 0.8rem;
+  color: var(--admin-text-muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.auth-input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--admin-surface-elevated);
+  border: 1px solid var(--admin-border-subtle);
+  border-radius: var(--admin-radius);
+  color: #FFF;
+  font-family: var(--font-mono, monospace);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+
+.auth-input:focus {
+  border-color: var(--admin-gold);
+  box-shadow: 0 0 10px var(--admin-gold-glow);
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--admin-gold);
+  border: none;
+  border-radius: var(--admin-radius);
+  color: #11100D;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-submit-btn:hover {
+  background: #E5C358;
+  transform: translateY(-1px);
+}
+
+.auth-error-msg {
+  color: var(--admin-error);
+  font-size: 0.75rem;
+  margin-top: 12px;
+  min-height: 18px;
+}
+
+/* ========================================================
+   3. MAIN WORKSPACE LAYOUT
+   ======================================================== */
+.admin-workspace {
+  flex: 1;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.is-active {
+  display: block;
+}
+
+/* ========================================================
+   4. RECEIPT GENERATOR FORM
+   ======================================================== */
+.generator-card {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  padding: 32px 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--admin-border-subtle);
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.7rem;
+  color: var(--admin-gold);
+  letter-spacing: 0.04em;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.col-span-2 {
+  grid-column: span 2;
+}
+
+@media (max-width: 640px) {
+  .form-group.col-span-2 {
+    grid-column: span 1;
+  }
+}
+
+.form-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--admin-text-secondary);
+  text-transform: uppercase;
+}
+
+.form-input, .form-select {
+  padding: 11px 14px;
+  background: var(--admin-surface-elevated);
+  border: 1px solid var(--admin-border-subtle);
+  border-radius: var(--admin-radius);
+  color: #FFF;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--admin-gold);
+  box-shadow: 0 0 8px var(--admin-gold-glow);
+}
+
+/* Ritual Selection Pills */
+.ritual-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.ritual-pill {
+  padding: 7px 12px;
+  background: var(--admin-surface-elevated);
+  border: 1px solid var(--admin-border-subtle);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.08em;
+  color: var(--admin-text-secondary);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.ritual-pill.is-selected {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--admin-gold);
+  color: var(--admin-gold);
+}
+
+/* Financial Calculation Strip */
+.financial-strip {
+  grid-column: span 2;
+  background: var(--admin-surface-elevated);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+@media (max-width: 640px) {
+  .financial-strip {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+  }
+}
+
+.financial-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.balance-due-block .form-input {
+  border-color: var(--admin-gold);
+  color: var(--admin-gold);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.form-action-row {
+  margin-top: 28px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.submit-receipt-btn {
+  padding: 14px 28px;
+  background: var(--admin-gold);
+  border: none;
+  border-radius: var(--admin-radius);
+  color: #11100D;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.submit-receipt-btn:hover {
+  background: #E5C358;
+  transform: translateY(-1px);
+}
+
+.submit-receipt-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ========================================================
+   5. LUXURY PRINTABLE RECEIPT MODAL
+   ======================================================== */
+.receipt-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(16px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.receipt-modal-backdrop.is-open {
+  display: flex;
+}
+
+.receipt-modal-container {
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.receipt-modal-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.control-btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.receipt-action-btn {
+  padding: 9px 16px;
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid var(--admin-border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-print {
+  background: var(--admin-gold);
+  color: #11100D;
+  font-weight: 700;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  border-color: #25D366;
+  color: #FFF;
+  font-weight: 700;
+}
+
+.btn-close {
+  background: transparent;
+  color: var(--admin-text-secondary);
+}
+
+/* The Official Printable Invoice Card */
+.official-receipt-sheet {
+  background: #FAF8F5;
+  color: #11100D;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.receipt-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #11100D;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+}
+
+.receipt-brand-title {
+  height: 38px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.receipt-studio-info {
+  font-size: 0.75rem;
+  color: #555;
+  line-height: 1.5;
+  font-family: var(--font-mono, monospace);
+}
+
+.receipt-meta-box {
+  text-align: right;
+}
+
+.receipt-badge-status {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #11100D;
+  color: #D4AF37;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+
+.receipt-number {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #11100D;
+}
+
+.receipt-date {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+.receipt-client-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background: #F2EFE9;
+  padding: 16px 20px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.receipt-client-item label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: #777;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.receipt-client-item span {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #11100D;
+}
+
+/* Package Table */
+.receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+.receipt-table th {
+  border-bottom: 1px solid #CCC;
+  text-align: left;
+  padding: 8px 12px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.receipt-table td {
+  padding: 12px;
+  border-bottom: 1px solid #EEE;
+  font-size: 0.9rem;
+}
+
+.receipt-totals-area {
+  margin-left: auto;
+  width: 280px;
+  margin-bottom: 24px;
+}
+
+.totals-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.88rem;
+}
+
+.totals-row.advance-row {
+  color: #059669;
+  font-weight: 600;
+}
+
+.totals-row.due-row {
+  border-top: 2px solid #11100D;
+  padding-top: 8px;
+  margin-top: 4px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #11100D;
+}
+
+.receipt-terms-box {
+  border-top: 1px solid #DDD;
+  padding-top: 14px;
+  font-size: 0.72rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.receipt-sign-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 32px;
+}
+
+.official-seal-mark {
+  border: 1px dashed rgba(212, 175, 55, 0.8);
+  padding: 8px 16px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: #9E7D4B;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.signature-line {
+  text-align: center;
+  border-top: 1px solid #333;
+  width: 180px;
+  padding-top: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+/* ========================================================
+   6. LEDGER TABLE / HISTORY TAB
+   ======================================================== */
+.ledger-card {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.ledger-table-wrap {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.ledger-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.ledger-table th {
+  background: var(--admin-surface-elevated);
+  padding: 10px 14px;
+  text-align: left;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: var(--admin-gold);
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--admin-border-subtle);
+}
+
+.ledger-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--admin-border-subtle);
+  color: var(--admin-text-secondary);
+}
+
+.ledger-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ========================================================
+   7. PRINT STYLES (Crucial for crisp PDF generation)
+   ======================================================== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  
+  .receipt-modal-backdrop,
+  .receipt-modal-container,
+  .official-receipt-sheet,
+  .official-receipt-sheet * {
+    visibility: visible;
+  }
+  
+  .receipt-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  
+  .receipt-modal-controls {
+    display: none !important;
+  }
+  
+  .official-receipt-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 20mm !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
