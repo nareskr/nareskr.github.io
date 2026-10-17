@@ -306,50 +306,119 @@ body {
   box-shadow: 0 0 8px var(--admin-gold-glow);
 }
 
-/* Ritual Selection Pills */
-.ritual-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
-}
-
-.ritual-pill {
-  padding: 7px 12px;
+/* ========================================================
+   WEDDING CEREMONY DATES SECTION
+   ======================================================== */
+.ceremony-dates-section {
   background: var(--admin-surface-elevated);
-  border: 1px solid var(--admin-border-subtle);
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-family: var(--font-mono, monospace);
-  letter-spacing: 0.08em;
-  color: var(--admin-text-secondary);
-  cursor: pointer;
-  user-select: none;
-  transition: all 0.2s ease;
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.ritual-pill.is-selected {
-  background: rgba(212, 175, 55, 0.15);
-  border-color: var(--admin-gold);
+.ceremony-dates-header {
+  border-bottom: 1px solid var(--admin-border-subtle);
+  padding-bottom: 8px;
+}
+
+.ceremony-dates-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   color: var(--admin-gold);
 }
 
-/* Financial Calculation Strip */
-.financial-strip {
-  grid-column: span 2;
+.ceremony-dates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .ceremony-dates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.badge-mandatory {
+  display: inline-block;
+  padding: 2px 6px;
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--admin-gold);
+  border-radius: 3px;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.badge-optional {
+  display: inline-block;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--admin-text-muted);
+  border-radius: 3px;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* ========================================================
+   FINANCIAL SECTION & DISCOUNT
+   ======================================================== */
+.financial-section {
   background: var(--admin-surface-elevated);
   border: 1px solid var(--admin-border);
   border-radius: var(--admin-radius);
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.financial-card-header {
+  border-bottom: 1px solid var(--admin-border-subtle);
+  padding-bottom: 8px;
+}
+
+.financial-card-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--admin-gold);
+}
+
+.financial-row-primary {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-top: 10px;
+}
+
+.financial-row-secondary {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.financial-row-payment {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  border-top: 1px dashed var(--admin-border-subtle);
+  padding-top: 14px;
 }
 
 @media (max-width: 640px) {
-  .financial-strip {
-    grid-column: span 1;
+  .financial-row-primary {
+    grid-template-columns: 1fr;
+  }
+  .financial-row-payment {
     grid-template-columns: 1fr;
   }
 }

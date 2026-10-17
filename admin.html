@@ -95,16 +95,32 @@
               <input type="text" id="client-venue" class="form-input" placeholder="e.g. Classic Grande, Imphal / Singjamei" required>
             </div>
 
-            <!-- Rituals Covered -->
-            <div class="form-group col-span-2">
-              <label class="form-label">Sacred Rituals Covered (Tap to Select)</label>
-              <div class="ritual-pills">
-                <span class="ritual-pill is-selected" data-value="Heijingpot">Heijingpot</span>
-                <span class="ritual-pill" data-value="Heijing Kharai">Heijing Kharai</span>
-                <span class="ritual-pill is-selected" data-value="Kundo Lengba">Kundo Lengba</span>
-                <span class="ritual-pill is-selected" data-value="Luhongba">Luhongba</span>
-                <span class="ritual-pill" data-value="Chakouba">Chakouba</span>
-                <span class="ritual-pill" data-value="Post-Wedding">Post-Wedding</span>
+            <!-- Wedding Ceremony Dates (Mandatory Luhongba & Heijingpot, Optional Chakkouba) -->
+            <div class="ceremony-dates-section col-span-2">
+              <div class="ceremony-dates-header">
+                <span class="ceremony-dates-title">WEDDING CEREMONY DATES</span>
+              </div>
+              <div class="ceremony-dates-grid">
+                <div class="form-group">
+                  <label for="heijingpot-date" class="form-label">
+                    Heijingpot Date * <span class="badge-mandatory">MANDATORY</span>
+                  </label>
+                  <input type="date" id="heijingpot-date" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="luhongba-date" class="form-label">
+                    Luhongba Date * <span class="badge-mandatory">MANDATORY</span>
+                  </label>
+                  <input type="date" id="luhongba-date" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="chakkouba-date" class="form-label">
+                    Chakkouba Date <span class="badge-optional">OPTIONAL</span>
+                  </label>
+                  <input type="date" id="chakkouba-date" class="form-input">
+                </div>
               </div>
             </div>
 
@@ -120,21 +136,49 @@
               </select>
             </div>
 
-            <!-- Financial Calculation Strip -->
-            <div class="financial-strip">
-              <div class="financial-block">
-                <label for="total-amount" class="form-label">Total Agreed Amount (₹) *</label>
-                <input type="number" id="total-amount" class="form-input" value="59999" min="0" required>
+            <!-- Financial Calculation Section with Discount -->
+            <div class="financial-section col-span-2">
+              <div class="financial-card-header">
+                <span class="financial-card-title">INVESTMENT & PAYMENT DETAILS</span>
               </div>
 
-              <div class="financial-block">
-                <label for="advance-paid" class="form-label">Advance Received (₹) *</label>
-                <input type="number" id="advance-paid" class="form-input" value="20000" min="0" required>
+              <!-- Top Row: Total, Discount, Net -->
+              <div class="financial-row-primary">
+                <div class="financial-block">
+                  <label for="total-amount" class="form-label">Total Agreed Amount (₹) *</label>
+                  <input type="number" id="total-amount" class="form-input" value="59999" min="0" required>
+                </div>
+
+                <div class="financial-block">
+                  <label for="discount-amount" class="form-label">Discount Amount (₹)</label>
+                  <input type="number" id="discount-amount" class="form-input" value="0" min="0" placeholder="0">
+                </div>
+
+                <div class="financial-block">
+                  <label for="net-amount" class="form-label">Net Payable Amount (₹)</label>
+                  <input type="number" id="net-amount" class="form-input" value="59999" readonly>
+                </div>
               </div>
 
-              <div class="financial-block balance-due-block">
-                <label for="balance-due" class="form-label">Remaining Balance (₹)</label>
-                <input type="number" id="balance-due" class="form-input" value="39999" readonly>
+              <!-- Middle Row: Discount Reason / Description -->
+              <div class="financial-row-secondary">
+                <div class="form-group" style="width: 100%;">
+                  <label for="discount-desc" class="form-label">Discount Reason / Description</label>
+                  <input type="text" id="discount-desc" class="form-input" placeholder="e.g. Seasonal Courtesy, Family & Friends, Early Booking Benefit">
+                </div>
+              </div>
+
+              <!-- Bottom Row: Advance & Balance -->
+              <div class="financial-row-payment">
+                <div class="financial-block">
+                  <label for="advance-paid" class="form-label">Advance Received (₹) *</label>
+                  <input type="number" id="advance-paid" class="form-input" value="20000" min="0" required>
+                </div>
+
+                <div class="financial-block balance-due-block">
+                  <label for="balance-due" class="form-label">Remaining Balance Due (₹)</label>
+                  <input type="number" id="balance-due" class="form-input" value="39999" readonly>
+                </div>
               </div>
             </div>
 
@@ -283,7 +327,9 @@
           <div class="receipt-client-item">
             <label>WEDDING VENUE & CEREMONIES</label>
             <span id="invoice-client-venue">Classic Grande, Imphal</span>
-            <div id="invoice-client-rituals" style="font-size: 0.78rem; color: #555; margin-top: 2px;">Heijingpot, Kundo Lengba, Luhongba</div>
+            <div id="invoice-client-dates" style="font-size: 0.78rem; color: #555; margin-top: 4px; line-height: 1.4;">
+              <!-- Heijingpot & Luhongba Dates populated dynamically -->
+            </div>
           </div>
         </div>
 
@@ -291,8 +337,8 @@
         <table class="receipt-table">
           <thead>
             <tr>
-              <th style="width: 60%;">COLLECTION / SERVICE DETAILS</th>
-              <th style="width: 20%; text-align: center;">SCHEDULE</th>
+              <th style="width: 50%;">COLLECTION & INCLUSIONS</th>
+              <th style="width: 30%; text-align: left;">CEREMONY DATES</th>
               <th style="width: 20%; text-align: right;">TOTAL FEE</th>
             </tr>
           </thead>
@@ -300,11 +346,13 @@
             <tr>
               <td>
                 <strong id="invoice-package-title">Classic Collection</strong><br>
-                <span style="font-size: 0.76rem; color: #666;">
+                <span id="invoice-package-desc" style="font-size: 0.76rem; color: #666; line-height: 1.4; display: inline-block; margin-top: 2px;">
                   Documentary wedding coverage, custom heirloom fine-art photobook, 4K cinematic highlights teaser & pendrive archive.
                 </span>
               </td>
-              <td style="text-align: center; font-size: 0.8rem; color: #555;">Reserved</td>
+              <td id="invoice-schedule-cell" style="font-size: 0.78rem; color: #333; line-height: 1.5;">
+                <!-- Dates formatted -->
+              </td>
               <td id="invoice-package-total" style="text-align: right; font-weight: 700;">₹59,999</td>
             </tr>
           </tbody>
@@ -313,8 +361,16 @@
         <!-- Totals Block -->
         <div class="receipt-totals-area">
           <div class="totals-row">
-            <span>Total Package Fee:</span>
+            <span>Package Fee (Gross):</span>
             <span id="invoice-subtotal">₹59,999</span>
+          </div>
+          <div class="totals-row discount-row" id="invoice-discount-row" style="display: none; color: #059669; font-weight: 600;">
+            <span id="invoice-discount-label">Discount Applied:</span>
+            <span id="invoice-discount-val">- ₹0</span>
+          </div>
+          <div class="totals-row net-row" id="invoice-net-row" style="display: none; font-weight: 700; border-top: 1px dashed #DDD; margin-top: 3px; padding-top: 5px;">
+            <span>Net Payable Amount:</span>
+            <span id="invoice-net-total">₹59,999</span>
           </div>
           <div class="totals-row advance-row">
             <span>Advance Received:</span>

@@ -7,13 +7,28 @@
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxb2tJ6YSy5aZ8KYUAUIsUdOXlaot5hSgI9qxYhZwLPbcqyZHwk6PPln0p7Yl8uYtks/exec';
 
-// Package Price Mapping
-const PACKAGE_PRICES = {
-  'Essential Collection': 49999,
-  'Classic Collection': 59999,
-  'Premium Collection': 79999,
-  'Luxury Collection': 99999,
-  'Custom Package': ''
+// Package Details Mapping
+const PACKAGE_DETAILS = {
+  'Essential Collection': {
+    price: 49999,
+    desc: 'Documentary candid coverage of Heijingpot & Luhongba ceremonies, high-res digital master gallery & highlights.'
+  },
+  'Classic Collection': {
+    price: 59999,
+    desc: 'Documentary wedding coverage, custom heirloom fine-art photobook, 4K cinematic highlights teaser & pendrive archive.'
+  },
+  'Premium Collection': {
+    price: 79999,
+    desc: 'Senior crew (2 Photographers + 1 Cinematographer), custom debossed heirloom album, extended documentary film & sneak peeks.'
+  },
+  'Luxury Collection': {
+    price: 99999,
+    desc: 'Full wedding experience with pre-wedding session, 2P + 2V senior crew, multi-volume heirloom boxed albums & cinematic feature.'
+  },
+  'Custom Package': {
+    price: '',
+    desc: 'Bespoke wedding coverage tailored according to specific family requirements.'
+  }
 };
 
 // Application State
@@ -73,9 +88,8 @@ function initAuth() {
         errorMsg.innerText = result.error || 'Invalid password. Please check your Script Property.';
       }
     } catch (err) {
-      // In case of network redirect, if password matches locally or retry
-      console.warn('Login request error:', err);
-      // Fallback check if Google Apps Script returned a redirect or direct success
+      // In case of network redirect, proceed with session
+      console.warn('Login request notice:', err);
       sessionStorage.setItem('nkp_admin_password', enteredPassword);
       authOverlay.style.display = 'none';
       initReceiptSerial();
@@ -140,6 +154,8 @@ function initReceiptSerial() {
 function initFormCalculations() {
   const packageSelect = document.getElementById('receipt-package');
   const totalAmountInput = document.getElementById('total-amount');
+  const discountAmountInput = document.getElementById('discount-amount');
+  const netAmountInput = document.getElementById('net-amount');
   const advancePaidInput = document.getElementById('advance-paid');
   const balanceDueInput = document.getElementById('balance-due');
   const receiptForm = document.getElementById('receipt-generator-form');
@@ -147,29 +163,26 @@ function initFormCalculations() {
   // Package dropdown change
   packageSelect.addEventListener('change', () => {
     const selectedPkg = packageSelect.value;
-    if (PACKAGE_PRICES[selectedPkg] !== undefined) {
-      totalAmountInput.value = PACKAGE_PRICES[selectedPkg];
+    if (PACKAGE_DETAILS[selectedPkg] && PACKAGE_DETAILS[selectedPkg].price !== '') {
+      totalAmountInput.value = PACKAGE_DETAILS[selectedPkg].price;
       calculateBalance();
     }
   });
 
   // Dynamic balance update on typing
   totalAmountInput.addEventListener('input', calculateBalance);
+  discountAmountInput.addEventListener('input', calculateBalance);
   advancePaidInput.addEventListener('input', calculateBalance);
 
   function calculateBalance() {
-    const total = parseFloat(totalAmountInput.value) || 0;
+    const gross = parseFloat(totalAmountInput.value) || 0;
+    const discount = Math.max(0, parseFloat(discountAmountInput.value) || 0);
+    const net = Math.max(0, gross - discount);
+    if (netAmountInput) netAmountInput.value = net;
     const advance = parseFloat(advancePaidInput.value) || 0;
-    const balance = Math.max(0, total - advance);
+    const balance = Math.max(0, net - advance);
     balanceDueInput.value = balance;
   }
-
-  // Ritual selection pills
-  document.querySelectorAll('.ritual-pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      pill.classList.toggle('is-selected');
-    });
-  });
 
   // Form submission
   receiptForm.addEventListener('submit', handleReceiptSubmission);
@@ -183,10 +196,17 @@ async function handleReceiptSubmission(e) {
   const submitBtn = document.getElementById('generate-receipt-btn');
   const statusIndicator = document.getElementById('form-status-msg');
 
-  // Gather Rituals
-  const selectedRituals = Array.from(document.querySelectorAll('.ritual-pill.is-selected'))
-    .map(p => p.getAttribute('data-value'))
-    .join(', ');
+  const heijingpotDate = document.getElementById('heijingpot-date').value;
+  const luhongbaDate = document.getElementById('luhongba-date').value;
+  const chakkoubaDate = document.getElementById('chakkouba-date').value || '';
+
+  const grossAmount = parseFloat(document.getElementById('total-amount').value) || 0;
+  const discountAmount = Math.max(0, parseFloat(document.getElementById('discount-amount').value) || 0);
+  const discountDesc = document.getElementById('discount-desc').value.trim();
+  const netAmount = Math.max(0, grossAmount - discountAmount);
+  const advancePaid = parseFloat(document.getElementById('advance-paid').value) || 0;
+  const balanceDue = Math.max(0, netAmount - advancePaid);
+  const packageName = document.getElementById('receipt-package').value;
 
   const receipt = {
     receiptNo: document.getElementById('receipt-no').value.trim(),
@@ -194,11 +214,17 @@ async function handleReceiptSubmission(e) {
     clientName: document.getElementById('client-name').value.trim(),
     phone: document.getElementById('client-phone').value.trim(),
     venue: document.getElementById('client-venue').value.trim() || 'Imphal, Manipur',
-    events: selectedRituals || 'Wedding Celebrations',
-    packageName: document.getElementById('receipt-package').value,
-    totalAmount: parseFloat(document.getElementById('total-amount').value) || 0,
-    advancePaid: parseFloat(document.getElementById('advance-paid').value) || 0,
-    balanceDue: parseFloat(document.getElementById('balance-due').value) || 0,
+    heijingpotDate: heijingpotDate,
+    luhongbaDate: luhongbaDate,
+    chakkoubaDate: chakkoubaDate,
+    packageName: packageName,
+    grossAmount: grossAmount,
+    discountAmount: discountAmount,
+    discountDesc: discountDesc,
+    totalAmount: netAmount,
+    netAmount: netAmount,
+    advancePaid: advancePaid,
+    balanceDue: balanceDue,
     paymentMode: document.getElementById('payment-mode').value,
     notes: document.getElementById('payment-note').value.trim()
   };
@@ -275,18 +301,65 @@ function openReceiptModal(r) {
     statusBadge.style.background = '#11100D';
   }
 
-  // Populate Fields
+  // Populate Basic Fields
   document.getElementById('invoice-no').innerText = r.receiptNo;
   document.getElementById('invoice-date').innerText = formatDateDisplay(r.date);
   document.getElementById('invoice-client-name').innerText = r.clientName;
   document.getElementById('invoice-client-phone').innerText = r.phone;
   document.getElementById('invoice-client-venue').innerText = r.venue;
-  document.getElementById('invoice-client-rituals').innerText = r.events;
 
+  // Ceremony Dates Display (under Client Venue)
+  const clientDatesEl = document.getElementById('invoice-client-dates');
+  if (clientDatesEl) {
+    const datesList = [];
+    if (r.heijingpotDate) datesList.push(`Heijingpot: ${formatDateDisplay(r.heijingpotDate)}`);
+    if (r.luhongbaDate) datesList.push(`Luhongba: ${formatDateDisplay(r.luhongbaDate)}`);
+    if (r.chakkoubaDate) datesList.push(`Chakkouba: ${formatDateDisplay(r.chakkoubaDate)}`);
+    clientDatesEl.innerText = datesList.join(' • ');
+  }
+
+  // Schedule cell in invoice breakdown table
+  const schedCell = document.getElementById('invoice-schedule-cell');
+  if (schedCell) {
+    const lines = [];
+    if (r.heijingpotDate) lines.push(`• <strong>Heijingpot:</strong> ${formatDateDisplay(r.heijingpotDate)}`);
+    if (r.luhongbaDate) lines.push(`• <strong>Luhongba:</strong> ${formatDateDisplay(r.luhongbaDate)}`);
+    if (r.chakkoubaDate) lines.push(`• <strong>Chakkouba:</strong> ${formatDateDisplay(r.chakkoubaDate)}`);
+    schedCell.innerHTML = lines.join('<br>') || 'Scheduled Ceremonies';
+  }
+
+  // Package & Inclusions
   document.getElementById('invoice-package-title').innerText = r.packageName;
-  document.getElementById('invoice-package-total').innerText = formatINR(r.totalAmount);
+  const descEl = document.getElementById('invoice-package-desc');
+  if (descEl && PACKAGE_DETAILS[r.packageName]) {
+    descEl.innerText = PACKAGE_DETAILS[r.packageName].desc;
+  }
 
-  document.getElementById('invoice-subtotal').innerText = formatINR(r.totalAmount);
+  const grossVal = r.grossAmount || r.totalAmount;
+  document.getElementById('invoice-package-total').innerText = formatINR(grossVal);
+  document.getElementById('invoice-subtotal').innerText = formatINR(grossVal);
+
+  // Discount & Net Rows Handling
+  const discountRow = document.getElementById('invoice-discount-row');
+  const discountLabel = document.getElementById('invoice-discount-label');
+  const discountVal = document.getElementById('invoice-discount-val');
+  const netRow = document.getElementById('invoice-net-row');
+  const netTotal = document.getElementById('invoice-net-total');
+
+  if (r.discountAmount && r.discountAmount > 0) {
+    if (discountRow) discountRow.style.display = 'flex';
+    if (discountLabel) {
+      discountLabel.innerText = r.discountDesc ? `Discount (${r.discountDesc}):` : 'Discount Applied:';
+    }
+    if (discountVal) discountVal.innerText = `- ${formatINR(r.discountAmount)}`;
+    if (netRow) netRow.style.display = 'flex';
+    if (netTotal) netTotal.innerText = formatINR(r.netAmount || (grossVal - r.discountAmount));
+  } else {
+    if (discountRow) discountRow.style.display = 'none';
+    if (netRow) netRow.style.display = 'none';
+  }
+
+  // Payments & Balance
   document.getElementById('invoice-advance-paid').innerText = `- ${formatINR(r.advancePaid)} (${r.paymentMode})`;
   document.getElementById('invoice-balance-due').innerText = formatINR(r.balanceDue);
 
@@ -305,6 +378,22 @@ function dispatchReceiptWhatsApp(r) {
   const cleanPhone = r.phone.replace(/[^0-9]/g, '');
   const targetPhone = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
 
+  // Build Ceremony Schedule
+  const ceremonyList = [];
+  if (r.heijingpotDate) ceremonyList.push(`🌸 *Heijingpot:* ${formatDateDisplay(r.heijingpotDate)}`);
+  if (r.luhongbaDate) ceremonyList.push(`💍 *Luhongba:* ${formatDateDisplay(r.luhongbaDate)}`);
+  if (r.chakkoubaDate) ceremonyList.push(`🎁 *Chakkouba:* ${formatDateDisplay(r.chakkoubaDate)}`);
+
+  // Build Financial Lines
+  const grossVal = r.grossAmount || r.totalAmount;
+  let financialLines = [`💰 *Package Fee:* ${formatINR(grossVal)}`];
+  if (r.discountAmount && r.discountAmount > 0) {
+    financialLines.push(`🏷️ *Discount (${r.discountDesc || 'Courtesy'}):* - ${formatINR(r.discountAmount)}`);
+    financialLines.push(`💵 *Net Agreed Amount:* ${formatINR(r.netAmount || (grossVal - r.discountAmount))}`);
+  }
+  financialLines.push(`✅ *Advance Received:* ${formatINR(r.advancePaid)} (${r.paymentMode})`);
+  financialLines.push(`⏳ *Balance Due:* ${formatINR(r.balanceDue)}`);
+
   const message = 
 `Hello ${r.clientName},
 
@@ -313,17 +402,14 @@ Thank you for choosing *Nares Kr Photography* for your wedding celebrations in M
 Here is your official *Booking Confirmation & Payment Receipt*:
 ━━━━━━━━━━━━━━━━━━━━
 🧾 *Receipt No:* ${r.receiptNo}
-📅 *Date:* ${formatDateDisplay(r.date)}
+📅 *Issue Date:* ${formatDateDisplay(r.date)}
 📍 *Venue:* ${r.venue}
-✨ *Events:* ${r.events}
+${ceremonyList.join('\n')}
 📦 *Package:* ${r.packageName}
-
-💰 *Total Fee:* ${formatINR(r.totalAmount)}
-✅ *Advance Paid:* ${formatINR(r.advancePaid)} (${r.paymentMode})
-⏳ *Balance Due:* ${formatINR(r.balanceDue)}
+${financialLines.join('\n')}
 ━━━━━━━━━━━━━━━━━━━━
 
-Your wedding dates are reserved on our studio calendar. We look forward to capturing your sacred rituals with quiet luxury and reverence.
+Your wedding dates are reserved on our studio calendar. We look forward to capturing your sacred celebrations with quiet luxury and reverence.
 
 *Nares Kr Photography*
 Imphal, Manipur • Instagram: @nares_kr`;
